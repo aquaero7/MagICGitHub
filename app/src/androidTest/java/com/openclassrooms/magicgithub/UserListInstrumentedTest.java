@@ -25,8 +25,11 @@ import static com.openclassrooms.magicgithub.utils.RecyclerViewUtils.clickChildV
 public class UserListInstrumentedTest {
 
     @Rule
+    //PH> Déclare et instancie la variable de classe 'mActivityRule' représentant l'action d'un utilisateur.
     public IntentsTestRule<ListUserActivity> mActivityRule = new IntentsTestRule<>(ListUserActivity.class);
 
+    //PH> Déclare et instancie la variable de classe 'currentUsersSize'...
+    //PH> ...représentant la taille de la liste des utilisateurs courante.
     private int currentUsersSize = -1;
 
     @Before
@@ -36,19 +39,24 @@ public class UserListInstrumentedTest {
 
     @Test
     public void checkIfRecyclerViewIsNotEmpty() {
+        //PH> Vérifie que la liste des utilisateurs affichée n'est pas vide.
         onView(withId(R.id.activity_list_user_rv)).check(new RecyclerViewUtils.ItemCount(currentUsersSize));
     }
 
     @Test
     public void checkIfAddingRandomUserIsWorking() {
+        //PH> Simule un clic sur le bouton '+' qui ajoute un utilisateur aléatoire...
         onView(withId(R.id.activity_list_user_fab)).perform(click());
+        //PH> ...puis vérifie que la taille de la liste des utilisateurs affichée a augmenté de 1.
         onView(withId(R.id.activity_list_user_rv)).check(new RecyclerViewUtils.ItemCount(currentUsersSize + 1));
     }
 
     @Test
     public void checkIfRemovingUserIsWorking() {
+        //PH> Simule un clic sur le bouton 'poubelle' du premier utilisateur de la liste affichée pour le supprimer...
         onView(ViewMatchers.withId(R.id.activity_list_user_rv))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(0, clickChildView(R.id.item_list_user_delete_button)));
+        //PH> ...puis vérifie que la taille de la liste des utilisateurs affichée a diminué de 1.
         onView(withId(R.id.activity_list_user_rv)).check(new RecyclerViewUtils.ItemCount(currentUsersSize - 1));
     }
 }

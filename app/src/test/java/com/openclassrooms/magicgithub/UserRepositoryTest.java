@@ -24,6 +24,7 @@ import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInA
 @RunWith(JUnit4.class)
 public class UserRepositoryTest {
 
+    //PH> Déclare et instancie la variable de classe userRepository représentant la liste des utilisateurs courante.
     private UserRepository userRepository;
     
     @Before
@@ -33,6 +34,9 @@ public class UserRepositoryTest {
     
     @Test
     public void getUsersWithSuccess() {
+        //PH> Teste la méthode 'getUsers'.
+        //PH> Crée la liste des utilisateurs courante.
+        //PH> Vérifie que cette liste correspond bien à la liste FAKE_USERS.
         List<User> usersActual = userRepository.getUsers();
         List<User> usersExpected = FAKE_USERS;
         assertThat(usersActual, containsInAnyOrder(usersExpected.toArray()));
@@ -40,6 +44,15 @@ public class UserRepositoryTest {
 
     @Test
     public void generateRandomUserWithSuccess() {
+        //PH> Teste la méthode 'generateRandomUser'.
+        //PH> Vide la liste des utilisateurs courante.
+        //PH> Extrait aléatoirement un utilisateur et l'ajoute à la liste courante.
+        //PH> Lit le premier élément de la liste courante (donc le seul).
+        //PH> Vérifie que la liste des utilisateurs courante ne contient qu'1 élément.
+        //PH> Vérifie que l'utilisateur récupéré aléatoirement est bien issu de la liste FAKE_USERS_RANDOM...
+        //PH> ...en comparant ses id, login et URL).
+        //PH> Vérifie que l'utilisateur récupéré aléatoirement n'est pas issu de la liste FAKE_USERS...
+        //PH> ...en comparant ses id, login et URL).
         userRepository.getUsers().clear();
         userRepository.generateRandomUser();
         User user = userRepository.getUsers().get(0);
@@ -54,6 +67,10 @@ public class UserRepositoryTest {
 
     @Test
     public void deleteUserWithSuccess() {
+        //PH> Teste la méthode 'deleteUser'.
+        //PH> Lit le premier utilisateur de la liste courante (le seul).
+        //PH> Supprime cet utilisateur.
+        //PH> Vérifie que la liste courante ne contient plus cet utilisateur.
         User userToDelete = userRepository.getUsers().get(0);
         userRepository.deleteUser(userToDelete);
         assertFalse(userRepository.getUsers().contains(userToDelete));

@@ -8,12 +8,14 @@ import java.util.List;
 import java.util.UUID;
 
 public abstract class FakeApiServiceGenerator {
+//PH> Classe abstraite.
 
-
+    //PH> Crée la méthode 'generateUsers' qui initialise la liste des utilisateurs courante avec la liste FAKE_USERS.
     static List<User> generateUsers() {
         return new ArrayList<>(FAKE_USERS);
     }
 
+    //PH> Déclare et instancie la liste d'utilisateurs FAKE_USERS.
     public static List<User> FAKE_USERS = Arrays.asList(
             new User("001", "Jake", "https://api.adorable.io/AVATARS/512/1.png"),
             new User("002", "Paul", "https://api.adorable.io/AVATARS/512/2.png"),
@@ -37,6 +39,7 @@ public abstract class FakeApiServiceGenerator {
             new User("020", "Rémi", "https://api.adorable.io/AVATARS/512/20.png")
     );
 
+    //PH> Déclare et instancie la liste d'utilisateurs FAKE_USERS_RANDOM.
     public static List<User> FAKE_USERS_RANDOM = Arrays.asList(
             new User("021", "Lea", "https://api.adorable.io/AVATARS/512/21.png"),
             new User("022", "Geoffrey", "https://api.adorable.io/AVATARS/512/22.png"),

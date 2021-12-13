@@ -5,7 +5,9 @@ import java.util.List;
 import static com.openclassrooms.magicgithub.api.FakeApiServiceGenerator.generateUsers;
 
 public class FakeApiService implements ApiService {
+//PH> Sous-classe qui implémente l'interface ApiService.
 
+    //PH> Appelle la méthode 'generateUsers' pour initialiser la liste des utilisateurs courante.
     private List<User> users = generateUsers();
 
     /**
@@ -15,7 +17,7 @@ public class FakeApiService implements ApiService {
     @Override
     public List<User> getUsers() {
         // TODO: A modifier
-        // Doit renvoyer la liste d'utilisateurs
+        //PH> Doit renvoyer la liste des utilisateurs courante.
         
         return users;
     }
@@ -27,7 +29,8 @@ public class FakeApiService implements ApiService {
     @Override
     public void generateRandomUser() {
         // TODO: A modifier
-        // Doit prendre un utilisateur aléatoirement dans la liste FAKE_USERS_RANDOM et l'ajouter à la liste d'utilisateurs
+        //PH> Doit extraire aléatoirement un utilisateur de la liste FAKE_USERS_RANDOM...
+        //PH> ...et l'ajouter à la fin de la liste des utilisateurs courante.
         
         users.add(User.random());
     }
@@ -38,7 +41,7 @@ public class FakeApiService implements ApiService {
     @Override
     public void deleteUser(User user) {
         // TODO: A modifier
-        // Doit supprimer l'utilisateur spécifié de la liste d'utilisateurs
+        //PH> Doit supprimer de la liste des utilisateurs courante l'utilisateur passé en paramètre.
         
         users.remove(user);
     }

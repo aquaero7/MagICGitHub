@@ -7,6 +7,7 @@ import static com.openclassrooms.magicgithub.api.FakeApiServiceGenerator.FAKE_US
 
 public class User {
 
+    //PH> Crée la structure des données représentant l'utilisateur (id, login, avatarUrl)...
     private String id;
     private String login;
     private String avatarUrl;
@@ -18,6 +19,7 @@ public class User {
     }
 
     // --- GETTERS ---
+    //PH> Crée les méthodes pour accéder aux données représentant l'utilisateur.
     public String getId() { return id; }
     public String getLogin() { return login; }
     public String getAvatarUrl() { return avatarUrl; }
@@ -26,6 +28,7 @@ public class User {
      * Generate random user
      */
     public static User random(){
+        //PH> Crée la méthode 'random' qui renvoie aléatoirement un utilisateur de la liste FAKE_USERS_RANDOM.
         return FAKE_USERS_RANDOM.get(new Random().nextInt(FAKE_USERS_RANDOM.size()));
     }
 
